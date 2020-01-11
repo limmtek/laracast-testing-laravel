@@ -7,15 +7,17 @@ use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testBasicTest()
+    public function testWelcomePage()
     {
-        $response = $this->get('/');
+        $this->visit('/')
+            ->see('Laravel 6');
+    }
 
-        $response->assertStatus(200);
+    public function testFeedbackLink()
+    {
+        $this->visit('/')
+            ->click('Feedback')
+            ->see('You\'ve been clicked')
+            ->seePageIs('/feedback');
     }
 }

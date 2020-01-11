@@ -12,5 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $laravelVersion = 'Laravel 6';
+    return view('welcome', compact('laravelVersion'));
 });
+
+Route::get('/feedback', function () {
+    return 'You\'ve been clicked';
+})->name('feedback');
