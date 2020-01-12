@@ -4,6 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Product
+ * @package App
+ *
+ * @property string $name
+ * @property int $cost
+ */
 class Product extends Model
 {
     protected $name;
