@@ -31,6 +31,28 @@ class Team extends Model
         return $this->members()->count();
     }
 
+
+    public function remove($users = null)
+    {
+        if ($users instanceof User) {
+            return $users->leaveTeam();
+        }
+
+        return $this->removeMany($users);
+    }
+
+    public function removeMany($users)
+    {
+        return $this->members()
+                    ->whereIn('id', $users->pluck('id'))
+                    ->update(['team_id' => null]);
+    }
+
+    public function restart()
+    {
+        $this->members()->update(['team_id' => null]);
+    }
+
     /**
      * @throws \Exception
      */
