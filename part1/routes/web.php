@@ -12,8 +12,12 @@
 */
 
 Route::get('/', function () {
-    $laravelVersion = 'Laravel 6';
-    return view('welcome', compact('laravelVersion'));
+    Mail::raw('Hello world', function ($message) {
+        $message->to('foo@bar.com');
+        $message->from('bar@foo.com');
+    });
+
+    return 'Email was sent';
 });
 
 Route::get('/feedback', function () {

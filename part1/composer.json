@@ -45,7 +45,10 @@
         "psr-4": {
             "Tests\\": "tests/"
         },
-        "files": ["tests/helpers/functions.php"]
+        "files": [
+          "tests/helpers/functions.php",
+          "tests/MailTracking.php"
+        ]
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
